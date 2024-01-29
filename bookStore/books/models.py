@@ -10,7 +10,7 @@ class Book(models.Model):
     def __str__(self):
         return self.book_name
 class Comment(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='comments')
     owner_of_comment = models.CharField(max_length=100)
     comment = models.TextField(blank=True)
     created_date = models.DateField(auto_now_add=True)
